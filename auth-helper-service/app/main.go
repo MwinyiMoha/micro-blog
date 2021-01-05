@@ -1,7 +1,7 @@
 package main
 
 import (
-	md "auth-helper-service/middleware"
+	md "auth-helper-service/app/middleware"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
