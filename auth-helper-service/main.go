@@ -3,10 +3,11 @@ package main
 import (
 	md "auth-helper-service/middleware"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 func rootHandler(c *gin.Context) {
-	c.JSON(200, gin.H{"detail": "OK"})
+	c.JSON(http.StatusOK, gin.H{"detail": "OK"})
 }
 
 func main() {

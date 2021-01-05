@@ -3,6 +3,7 @@ package middleware
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
+	"net/http"
 	"strings"
 )
 
@@ -19,7 +20,7 @@ func JWTParserMiddleware() gin.HandlerFunc {
 			c.Writer.Header().Set("X-User-Id", jwt)
 			c.Next()
 		} else {
-			c.JSON(400, gin.H{"detail": "Improperly formatted token"})
+			c.JSON(http.StatusBadRequest, gin.H{"detail": "Improperly formatted token"})
 			c.Abort()
 		}
 	}
