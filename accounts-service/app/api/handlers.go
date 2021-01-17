@@ -15,6 +15,14 @@ func GetAccountMeta() gin.HandlerFunc {
 // CreateAccountMeta is a route handler that creates a metadata object for a user
 func CreateAccountMeta() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"detail": "Created"})
+		userID := "1234567890"
+
+		err := createAccountMetadata(userID)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"detail": err})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{"detail": "OK"})
 	}
 }

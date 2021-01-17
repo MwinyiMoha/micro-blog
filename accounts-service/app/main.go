@@ -2,6 +2,7 @@ package main
 
 import (
 	"account-metadata-service/app/api"
+	"account-metadata-service/app/database"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -11,11 +12,13 @@ func rootHandler(c *gin.Context) {
 }
 
 func main() {
+	database.Init()
+
 	r := gin.Default()
 
 	r.GET("/", rootHandler)
 	r.GET("/metadata", api.GetAccountMeta())
 	r.POST("/metadata", api.CreateAccountMeta())
 
-	r.Run(":6000")
+	r.Run(":5001")
 }

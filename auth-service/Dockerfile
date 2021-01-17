@@ -1,4 +1,4 @@
-ARG APP_NAME=auth_helper
+ARG APP_NAME=auth_service
 
 
 FROM golang:1.15-alpine as builder

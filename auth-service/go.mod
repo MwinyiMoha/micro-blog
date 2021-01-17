@@ -1,4 +1,4 @@
-module auth-helper-service
+module auth-service
 
 go 1.15
 
