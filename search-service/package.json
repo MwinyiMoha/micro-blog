@@ -1,0 +1,28 @@
+{
+  "name": "search-service",
+  "version": "1.0.0",
+  "description": "Search service for the micro-blog app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev ./src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mohammed Mwijaa <mm.mwijaa@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.10.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-pino-logger": "^5.0.0",
+    "pino": "^6.11.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/elasticsearch": "^5.0.37",
+    "@types/express": "^4.17.11",
+    "@types/express-pino-logger": "^4.0.2",
+    "@types/pino": "^6.3.5",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.3"
+  }
+}
