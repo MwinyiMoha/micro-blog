@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+
+  postgres:
+    image: postgis/postgis:12-3.0
+    environment:
+      - POSTGRES_PASSWORD=top_secret
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  elasticsearch:
+    image: blacktop/elasticsearch:7.10
+    environment: 
+      - discovery.type=single-node
+    ports: 
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+
+  mongo:
+    image: mongo:latest
+    environment: 
+      - MONGO_INITDB_ROOT_USERNAME=mongoadmin
+      - MONGO_INITDB_ROOT_PASSWORD=top_secret
+      - MONGO_INITDB_DATABASE=blog
+    ports: 
+      - "27018:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  postgres_data:
+    driver: local
+  es_data:
+    driver: local
+  mongo_data:
+    driver: local
